@@ -5,36 +5,37 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ahaana Hans — Notebook</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=JetBrains+Mono:wght@400..600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Inter:ital,wght@0,300..800;1,300..800&family=JetBrains+Mono:wght@400..700&display=swap');
 
 :root{
-  --sky: #4FB6E8;
-  --sky-deep: #2C8FC4;
-  --mint: #7FE8C4;
-  --mint-deep: #3FBE99;
-  --ink: #0E2A3D;
-  --ink-soft: #4A6478;
-  --paper: #F6FBFA;
+  --sky: #00C2FF;
+  --sky-deep: #0077B6;
+  --mint: #C770FF;
+  --mint-deep: #7B2CBF;
+  --ink: #14161F;
+  --ink-soft: #5B6376;
+  --paper: #F7F8FC;
   --paper-card: #FFFFFF;
-  --gold: #F2B33D;
-  --line: rgba(14,42,61,0.10);
-  --shadow: 0 20px 50px -20px rgba(14,42,61,0.25);
+  --gold: #FFC857;
+  --gold-deep: #B8860B;
+  --line: rgba(20,22,31,0.10);
+  --shadow: 0 20px 50px -20px rgba(20,22,31,0.18);
 
-  /* colour-story tints — each section gets its own note, never repeated back-to-back */
-  --tint-mint: linear-gradient(160deg, #F4FCF9 0%, #E6F8EF 55%, #F4FCF9 100%);
-  --tint-gold: linear-gradient(160deg, #FFFBF1 0%, #FCEFD2 55%, #FFFBF1 100%);
-  --tint-sky:  linear-gradient(160deg, #F2FAFE 0%, #E2F1FB 55%, #F2FAFE 100%);
+  /* colour-story glows — each section gets its own faint signal, never repeated back-to-back */
+  --tint-mint: radial-gradient(circle at 85% 100%, rgba(199,112,255,0.10), transparent 50%), var(--paper);
+  --tint-gold: radial-gradient(circle at 50% 100%, rgba(255,200,87,0.12), transparent 50%), var(--paper);
+  --tint-sky:  radial-gradient(circle at 15% 0%,  rgba(0,194,255,0.10),  transparent 50%), var(--paper);
 }
 
 *{ margin:0; padding:0; box-sizing:border-box; }
 html{ scroll-behavior:smooth; }
 
 body{
-  font-family:'Plus Jakarta Sans', sans-serif;
+  font-family:'Inter', sans-serif;
   background:
-    radial-gradient(circle at 12% 8%, rgba(79,182,232,0.10), transparent 38%),
-    radial-gradient(circle at 88% 18%, rgba(127,232,196,0.12), transparent 42%),
-    radial-gradient(circle at 50% 95%, rgba(242,179,61,0.07), transparent 45%),
+    radial-gradient(circle at 12% 8%, rgba(0,194,255,0.07), transparent 38%),
+    radial-gradient(circle at 88% 18%, rgba(199,112,255,0.08), transparent 42%),
+    radial-gradient(circle at 50% 95%, rgba(255,200,87,0.06), transparent 45%),
     var(--paper);
   color:var(--ink);
   line-height:1.6;
@@ -43,7 +44,7 @@ body{
 
 ::selection{ background:var(--mint); color:var(--ink); }
 
-h1,h2,h3{ font-family:'Fraunces', serif; font-weight:600; letter-spacing:-0.01em; }
+h1,h2,h3{ font-family:'Space Grotesk', sans-serif; font-weight:600; letter-spacing:-0.01em; }
 
 .mono{ font-family:'JetBrains Mono', monospace; }
 
@@ -57,8 +58,8 @@ a{ color:inherit; text-decoration:none; }
 .grid-bg{
   position:fixed; inset:0; z-index:-1; pointer-events:none;
   background-image:
-    linear-gradient(rgba(14,42,61,0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(14,42,61,0.045) 1px, transparent 1px);
+    linear-gradient(rgba(20,22,31,0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(20,22,31,0.045) 1px, transparent 1px);
   background-size: 38px 38px;
   mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 75%);
 }
@@ -68,21 +69,21 @@ header{
   position:fixed; top:0; left:0; right:0; z-index:100;
   display:flex; align-items:center; justify-content:space-between;
   padding:18px 6vw;
-  background:rgba(246,251,250,0.78);
+  background:rgba(247,248,252,0.78);
   backdrop-filter:blur(14px);
   border-bottom:1px solid var(--line);
   transition:padding .3s ease;
 }
 .logo{
   display:flex; align-items:center; gap:10px;
-  font-family:'Fraunces', serif; font-weight:700; font-size:1.15rem;
+  font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:1.15rem;
 }
 .logo .dot{
   width:10px; height:10px; border-radius:50%;
   background:linear-gradient(135deg, var(--sky), var(--mint));
-  box-shadow:0 0 0 4px rgba(127,232,196,0.25);
+  box-shadow:0 0 0 4px rgba(177,74,255,0.25);
 }
-nav ul{ display:flex; gap:2.2rem; list-style:none; }
+nav ul{ display:flex; gap:1.7rem; list-style:none; }
 nav a{
   font-size:0.92rem; font-weight:600; color:var(--ink-soft);
   position:relative; padding:4px 0;
@@ -129,9 +130,9 @@ nav a:hover::after{ width:100%; }
 .eyebrow{
   display:inline-flex; align-items:center; gap:8px;
   font-family:'JetBrains Mono', monospace; font-size:0.78rem; letter-spacing:0.08em;
-  color:var(--sky-deep); background:rgba(79,182,232,0.12);
+  color:var(--sky-deep); background:rgba(0,229,255,0.12);
   padding:6px 14px; border-radius:30px; margin-bottom:22px;
-  border:1px solid rgba(79,182,232,0.3);
+  border:1px solid rgba(0,229,255,0.3);
 }
 .eyebrow::before{ content:'●'; color:var(--mint-deep); font-size:0.6rem; }
 
@@ -182,15 +183,15 @@ nav a:hover::after{ width:100%; }
   border-radius:50%;
   background:linear-gradient(150deg, var(--sky) 0%, var(--mint) 100%);
   display:flex; align-items:center; justify-content:center;
-  font-family:'Fraunces', serif; font-weight:700; font-size:3.1rem; color:#fff;
-  box-shadow:0 25px 60px -15px rgba(44,143,196,0.55);
+  font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:3.1rem; color:#fff;
+  box-shadow:0 25px 60px -15px rgba(0,184,204,0.55);
   animation:pulseCore 4.5s ease-in-out infinite;
 }
-@keyframes pulseCore{ 0%,100%{ box-shadow:0 25px 60px -15px rgba(44,143,196,0.55);} 50%{ box-shadow:0 30px 70px -10px rgba(63,190,153,0.55);} }
+@keyframes pulseCore{ 0%,100%{ box-shadow:0 25px 60px -15px rgba(0,184,204,0.55);} 50%{ box-shadow:0 30px 70px -10px rgba(139,47,209,0.55);} }
 
 .ring{
   position:absolute; top:50%; left:50%;
-  border:1.5px dashed rgba(14,42,61,0.18);
+  border:1.5px dashed rgba(20,22,31,0.18);
   border-radius:50%;
   transform:translate(-50%,-50%);
 }
@@ -208,7 +209,7 @@ nav a:hover::after{ width:100%; }
   animation:floatMedal 5s ease-in-out infinite;
 }
 .medal .tag{ font-size:0.62rem; font-weight:700; color:var(--ink); }
-.medal .sub{ font-size:0.48rem; color:var(--gold); letter-spacing:.04em; }
+.medal .sub{ font-size:0.48rem; color:var(--gold-deep); letter-spacing:.04em; }
 .medal::before{
   content:'';
   position:absolute; bottom:-6px; width:8px; height:14px;
@@ -261,8 +262,9 @@ section{ padding:120px 6vw; position:relative; }
 .notebook{
   flex:1 1 480px; min-width:300px;
   background:
-    repeating-linear-gradient(to bottom, transparent 0, transparent 37px, var(--line) 38px);
-  background-position: 0 6px;
+    repeating-linear-gradient(to bottom, transparent 0, transparent 37px, var(--line) 38px),
+    var(--paper-card);
+  background-position: 0 6px, 0 0;
   border-radius:18px;
   padding:38px 38px 38px 56px;
   position:relative;
@@ -271,12 +273,12 @@ section{ padding:120px 6vw; position:relative; }
 }
 .notebook::before{
   content:''; position:absolute; left:34px; top:0; bottom:0; width:1px;
-  background:rgba(242,179,61,0.5);
+  background:rgba(255,200,87,0.5);
 }
 .notebook h3{ font-size:1.7rem; margin-bottom:16px; }
 .notebook p{ color:var(--ink-soft); margin-bottom:14px; font-size:1rem; }
 .notebook p strong{ color:var(--ink); }
-.notebook .signoff{ font-family:'Fraunces', serif; font-style:italic; font-size:1.15rem; color:var(--sky-deep); margin-top:18px; }
+.notebook .signoff{ font-family:'Space Grotesk', sans-serif; font-style:italic; font-size:1.15rem; color:var(--sky-deep); margin-top:18px; }
 
 .about-stats{ flex:1 1 260px; min-width:240px; display:grid; gap:18px; }
 .stat-card{
@@ -284,7 +286,7 @@ section{ padding:120px 6vw; position:relative; }
   padding:22px 24px; transition:transform .3s ease, box-shadow .3s ease;
 }
 .stat-card:hover{ transform:translateY(-4px); box-shadow:var(--shadow); }
-.stat-card .num{ font-family:'Fraunces', serif; font-size:2.1rem; font-weight:700; color:var(--sky-deep); }
+.stat-card .num{ font-family:'Space Grotesk', sans-serif; font-size:2.1rem; font-weight:700; color:var(--sky-deep); }
 .stat-card .num .accent2{ color:var(--mint-deep); }
 .stat-card .lbl{ font-size:0.86rem; color:var(--ink-soft); margin-top:4px; }
 
@@ -317,11 +319,37 @@ section{ padding:120px 6vw; position:relative; }
 .card p{ color:var(--ink-soft); font-size:0.96rem; }
 .card .tagnum{ position:absolute; top:24px; right:26px; font-family:'JetBrains Mono', monospace; font-size:0.75rem; color:var(--ink-soft); opacity:0.5; }
 
-.c-dance{ --c1:#2C8FC4; --c2:rgba(79,182,232,0.14); }
-.c-study{ --c1:#3FBE99; --c2:rgba(127,232,196,0.18); }
-.c-shoot{ --c1:#D69227; --c2:rgba(242,179,61,0.16); }
+.c-dance{ --c1:#00B8CC; --c2:rgba(0,229,255,0.14); }
+.c-study{ --c1:#8B2FD1; --c2:rgba(177,74,255,0.18); }
+.c-shoot{ --c1:#FFC857; --c2:rgba(255,200,87,0.16); }
 
-/* ===== Learning Style ===== */
+/* ===== Why This Comes Naturally — data-log timeline ===== */
+#gifted{ background:var(--tint-sky); }
+.log-wrap{ max-width:740px; margin:0 auto; position:relative; padding-left:46px; }
+.log-wrap::before{
+  content:''; position:absolute; left:13px; top:6px; bottom:6px; width:2px;
+  background:linear-gradient(to bottom, var(--sky), var(--mint), var(--gold));
+  opacity:0.45;
+}
+.log-entry{ position:relative; margin-bottom:46px; }
+.log-entry:last-child{ margin-bottom:0; }
+.log-entry::before{
+  content:''; position:absolute; left:-46px; top:3px; width:13px; height:13px; border-radius:50%;
+  background:var(--node); box-shadow:0 0 0 4px color-mix(in srgb, var(--node) 18%, transparent), 0 0 18px var(--node);
+}
+.log-entry:nth-child(1){ --node: var(--sky); --node-deep: var(--sky-deep); }
+.log-entry:nth-child(2){ --node: var(--mint); --node-deep: var(--mint-deep); }
+.log-entry:nth-child(3){ --node: var(--gold); --node-deep: var(--gold-deep); }
+.log-entry:nth-child(4){ --node: var(--sky); --node-deep: var(--sky-deep); }
+.log-entry:nth-child(5){ --node: var(--mint); --node-deep: var(--mint-deep); }
+.log-tag{
+  font-family:'JetBrains Mono', monospace; font-size:0.7rem; letter-spacing:0.12em;
+  color:var(--node-deep); margin-bottom:8px; opacity:0.95;
+}
+.log-entry h4{ font-size:1.25rem; margin-bottom:8px; color:var(--ink); font-weight:600; }
+.log-entry p{ color:var(--ink-soft); font-size:0.97rem; line-height:1.75; }
+
+
 #learning{ background:var(--tint-gold); }
 .pref-list{
   max-width:780px; margin:0 auto;
@@ -329,13 +357,13 @@ section{ padding:120px 6vw; position:relative; }
 }
 .pref-row{
   display:flex; align-items:center; gap:18px;
-  background:rgba(255,255,255,0.55); border:1px solid var(--line);
+  background:rgba(20,22,31,0.04); border:1px solid var(--line);
   border-radius:14px; padding:18px 24px;
   transition:transform .3s ease, background .3s ease, border-color .3s ease;
 }
 .pref-row.picked{
   background:var(--paper-card);
-  border-color:rgba(242,179,61,0.55);
+  border-color:rgba(255,200,87,0.55);
   box-shadow:var(--shadow);
 }
 .pref-row:hover{ transform:translateX(4px); }
@@ -355,17 +383,17 @@ section{ padding:120px 6vw; position:relative; }
 .pref-row.picked .pref-text .t{ color:var(--ink); }
 .pref-badge{
   font-family:'JetBrains Mono', monospace; font-size:0.68rem; letter-spacing:0.05em;
-  color:var(--gold); border:1px solid rgba(242,179,61,0.4); border-radius:20px;
+  color:var(--gold-deep); border:1px solid rgba(255,200,87,0.4); border-radius:20px;
   padding:4px 10px; white-space:nowrap; opacity:0;
 }
 .pref-row.picked .pref-badge{ opacity:1; }
 
 
 /* ===== Achievements ===== */
-#achievements{ background:var(--ink); color:#fff; }
-#achievements .section-head h2{ color:#fff; }
-#achievements .section-head p{ color:rgba(255,255,255,0.65); }
-#achievements .eyebrow{ background:rgba(127,232,196,0.15); color:var(--mint); border-color:rgba(127,232,196,0.35); }
+#achievements{ background:var(--paper); color:var(--ink); }
+#achievements .section-head h2{ color:var(--ink); }
+#achievements .section-head p{ color:rgba(20,22,31,0.65); }
+#achievements .eyebrow{ background:rgba(199,112,255,0.12); color:var(--mint-deep); border-color:rgba(199,112,255,0.35); }
 #achievements .eyebrow::before{ color:var(--gold); }
 
 .medal-grid{
@@ -376,11 +404,11 @@ section{ padding:120px 6vw; position:relative; }
 @media (max-width:540px){ .medal-grid{ grid-template-columns:1fr; } }
 
 .gold-card{
-  background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1);
+  background:rgba(20,22,31,0.04); border:1px solid rgba(20,22,31,0.1);
   border-radius:18px; padding:28px 22px; text-align:center;
   transition:transform .35s ease, background .35s ease;
 }
-.gold-card:hover{ transform:translateY(-8px); background:rgba(255,255,255,0.08); }
+.gold-card:hover{ transform:translateY(-8px); background:rgba(20,22,31,0.08); }
 .gold-ring{
   width:70px; height:70px; margin:0 auto 16px; border-radius:50%;
   display:flex; align-items:center; justify-content:center;
@@ -389,20 +417,20 @@ section{ padding:120px 6vw; position:relative; }
 }
 .gold-ring::after{
   content:''; position:absolute; inset:6px; border-radius:50%;
-  background:var(--ink);
+  background:var(--paper);
 }
-.gold-ring span{ position:relative; z-index:2; font-family:'Fraunces', serif; font-weight:700; color:var(--gold); font-size:0.95rem; }
-.gold-card h4{ font-family:'JetBrains Mono', monospace; font-size:0.78rem; letter-spacing:0.05em; color:var(--mint); margin-bottom:6px; }
-.gold-card p{ font-size:0.86rem; color:rgba(255,255,255,0.7); }
+.gold-ring span{ position:relative; z-index:2; font-family:'Space Grotesk', sans-serif; font-weight:700; color:var(--gold-deep); font-size:0.95rem; }
+.gold-card h4{ font-family:'JetBrains Mono', monospace; font-size:0.78rem; letter-spacing:0.05em; color:var(--mint-deep); margin-bottom:6px; }
+.gold-card p{ font-size:0.86rem; color:rgba(20,22,31,0.7); }
 
 .scoreboard{
   max-width:760px; margin:0 auto;
-  background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1);
+  background:rgba(20,22,31,0.04); border:1px solid rgba(20,22,31,0.1);
   border-radius:18px; overflow:hidden;
 }
 .score-row{
   display:flex; align-items:center; justify-content:space-between; gap:18px;
-  padding:20px 26px; border-bottom:1px solid rgba(255,255,255,0.08);
+  padding:20px 26px; border-bottom:1px solid rgba(20,22,31,0.08);
 }
 .score-row:last-child{ border-bottom:none; }
 .score-row .left{ display:flex; align-items:center; gap:16px; }
@@ -410,16 +438,16 @@ section{ padding:120px 6vw; position:relative; }
   font-family:'JetBrains Mono', monospace; font-size:0.8rem; font-weight:600;
   padding:6px 12px; border-radius:30px; white-space:nowrap;
 }
-.rank-1{ background:rgba(242,179,61,0.18); color:var(--gold); }
-.rank-2{ background:rgba(79,182,232,0.18); color:var(--sky); }
+.rank-1{ background:rgba(255,200,87,0.18); color:var(--gold-deep); }
+.rank-2{ background:rgba(0,194,255,0.18); color:var(--sky-deep); }
 .score-row .ename{ font-size:0.98rem; }
-.score-row .esub{ font-size:0.8rem; color:rgba(255,255,255,0.5); }
+.score-row .esub{ font-size:0.8rem; color:rgba(20,22,31,0.5); }
 
 .extra-line{
   max-width:760px; margin:50px auto 0; text-align:center;
-  color:rgba(255,255,255,0.7); font-size:0.98rem; line-height:1.8;
+  color:rgba(20,22,31,0.7); font-size:0.98rem; line-height:1.8;
 }
-.extra-line .hl{ color:var(--mint); font-weight:600; }
+.extra-line .hl{ color:var(--mint-deep); font-weight:600; }
 
 /* ===== Connect ===== */
 #connect{ background:var(--tint-sky); }
@@ -431,7 +459,7 @@ section{ padding:120px 6vw; position:relative; }
 }
 .connect-wrap::before{
   content:''; position:absolute; inset:0;
-  background:linear-gradient(120deg, rgba(79,182,232,0.07), rgba(127,232,196,0.07));
+  background:linear-gradient(120deg, rgba(0,229,255,0.07), rgba(177,74,255,0.07));
   z-index:0;
 }
 .connect-inner{ position:relative; z-index:1; }
@@ -467,6 +495,7 @@ footer .heart{ color:var(--sky-deep); }
     <ul id="navList">
       <li><a href="#about">About</a></li>
       <li><a href="#interests">Interests</a></li>
+      <li><a href="#gifted">Why Maths</a></li>
       <li><a href="#learning">Learning Style</a></li>
       <li><a href="#achievements">Achievements</a></li>
       <li><a href="#connect">Connect</a></li>
@@ -582,6 +611,42 @@ footer .heart{ color:var(--sky-deep); }
       <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg></div>
       <h3>Shooting</h3>
       <p>Steady hands, steady breathing, one shot at a time. It taught me more about patience than any classroom lecture ever has.</p>
+    </div>
+  </div>
+</section>
+
+<section id="gifted">
+  <div class="section-head reveal">
+    <span class="eyebrow">SYSTEM LOG · SELF-ASSESSMENT</span>
+    <h2>Why this comes naturally</h2>
+    <p>People sometimes ask why I gravitate toward Maths the way I do. Here's the honest log.</p>
+  </div>
+
+  <div class="log-wrap">
+    <div class="log-entry reveal">
+      <div class="log-tag">[ ENTRY 01 ]</div>
+      <h4>Maths runs in the family</h4>
+      <p>My mother and grandmother have both taught mathematics, so numbers were part of everyday conversation in our house long before I ever touched a textbook.</p>
+    </div>
+    <div class="log-entry reveal">
+      <div class="log-tag">[ ENTRY 02 ]</div>
+      <h4>I grew up watching it taught well</h4>
+      <p>Two generations of teachers in the house meant I learned what understanding a concept actually looks like — not just memorising steps to pass a test.</p>
+    </div>
+    <div class="log-entry reveal">
+      <div class="log-tag">[ ENTRY 03 ]</div>
+      <h4>An engineer for a father</h4>
+      <p>Whenever a concept gets genuinely tricky, I have someone at home who can break it down with real technical clarity, not just a textbook explanation.</p>
+    </div>
+    <div class="log-entry reveal">
+      <div class="log-tag">[ ENTRY 04 ]</div>
+      <h4>Curiosity that doesn't stop at the syllabus</h4>
+      <p>I regularly end up exploring Maths and Science topics well beyond what's taught in class, simply because I want to know more.</p>
+    </div>
+    <div class="log-entry reveal">
+      <div class="log-tag">[ ENTRY 05 ]</div>
+      <h4>Exposure turned into real enthusiasm</h4>
+      <p>What started as growing up around the subject has become something I genuinely enjoy — and that's what keeps me going through the hard problems, not just the easy wins.</p>
     </div>
   </div>
 </section>
@@ -725,12 +790,12 @@ footer .heart{ color:var(--sky-deep); }
           <div class="v">7</div>
         </div>
         <div class="connect-field">
-          <div class="k">GOAL</div>
-          <div class="v">IAS Officer</div>
+          <div class="k">EMAIL</div>
+          <div class="v">8997@gdgps.gdgoenka.com</div>
         </div>
       </div>
 
-      <p class="connect-note">For privacy, reach out through my school or a parent/guardian rather than direct contact. 🙂</p>
+      <p class="connect-note">For privacy, please reach out via my school email above, or through a parent/guardian. 🙂</p>
     </div>
   </div>
 </section>
